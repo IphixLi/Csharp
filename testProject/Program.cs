@@ -1,22 +1,29 @@
-﻿/*
-  The following code creates five random OrderIDs
-  to test the fraud detection process.  OrderIDs 
-  consist of a letter from A to E, and a three
-  digit number. Ex. A123.
-*/
-Random random = new Random();
-string[] orderIDs = new string[5];
+﻿string permission = "Admin|Manager";
+int level = 53;
 
-for (int i = 0; i < orderIDs.Length; i++)
+if (permission.Contains("Admin"))
 {
-    int prefixValue = random.Next(65, 70);
-    string prefix = Convert.ToChar(prefixValue).ToString();
-    string suffix = random.Next(1, 1000).ToString("000");
-
-    orderIDs[i] = prefix + suffix;
+    if (level > 55)
+    {
+        Console.WriteLine("Welcome, Super Admin user.");
+    }
+    else
+    {
+        Console.WriteLine("Welcome, Admin user.");
+    }
 }
-
-foreach (var orderID in orderIDs)
+else if (permission.Contains("Manager"))
 {
-    Console.WriteLine(orderID);
+    if (level >= 20)
+    {
+        Console.WriteLine("Contact an Admin for access.");
+    }
+    else
+    {
+        Console.WriteLine("You do not have sufficient privileges.");
+    }
+}
+else
+{
+    Console.WriteLine("You do not have sufficient privileges.");
 }
