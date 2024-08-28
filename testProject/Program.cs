@@ -1,29 +1,26 @@
-﻿string permission = "Admin|Manager";
-int level = 53;
+﻿string[] names = { "Alex", "Eddie", "David", "Michael" };
 
-if (permission.Contains("Admin"))
+for (int i = 0; i < names.Length; i++)
 {
-    if (level > 55)
+    if (names[i] == "David")
     {
-        Console.WriteLine("Welcome, Super Admin user.");
-    }
-    else
-    {
-        Console.WriteLine("Welcome, Admin user.");
+        names[i] = "Sammy";
     }
 }
-else if (permission.Contains("Manager"))
+
+foreach (var name in names)
 {
-    if (level >= 20)
-    {
-        Console.WriteLine("Contact an Admin for access.");
-    }
-    else
-    {
-        Console.WriteLine("You do not have sufficient privileges.");
-    }
+    Console.WriteLine(name);
 }
-else
+
+for (int i = 1; i < 101; i++)
 {
-    Console.WriteLine("You do not have sufficient privileges.");
+    if ((i % 3 == 0) && (i % 5 == 0))
+        Console.WriteLine($"{i} - FizzBuzz");
+    else if (i % 3 == 0)
+        Console.WriteLine($"{i} - Fizz");
+    else if (i % 5 == 0)
+        Console.WriteLine($"{i} - Buzz");
+    else
+        Console.WriteLine($"{i}");
 }
