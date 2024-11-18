@@ -1,26 +1,72 @@
-﻿string[] names = { "Alex", "Eddie", "David", "Michael" };
+﻿// string? readResult;
+// string valueEntered = "";
+// int numValue = 0;
+// bool validNumber = false;
 
-for (int i = 0; i < names.Length; i++)
+// Console.WriteLine("Enter an integer value between 5 and 10");
+
+// do
+// {
+//     readResult = Console.ReadLine();
+//     if (readResult != null) 
+//     {
+//         valueEntered = readResult;
+//     }
+
+//     validNumber = int.TryParse(valueEntered, out numValue);
+
+//     if (validNumber == true)
+//     {
+//         if (numValue <= 5 || numValue >= 10)
+//         {
+//             validNumber = false;
+//             Console.WriteLine($"You entered {numValue}. Please enter a number between 5 and 10.");
+//         }
+//     }
+//     else 
+//     {
+//         Console.WriteLine("Sorry, you entered an invalid number, please try again");
+//     }
+// } while (validNumber == false);
+
+// Console.WriteLine($"Your input value ({numValue}) has been accepted.");
+
+// readResult = Console.ReadLine();
+
+// -------------------------------
+
+string[] myStrings = new string[2] { "I like pizza. I like roast chicken. I like salad", "I like all three of the menu choices" };
+int stringsCount = myStrings.Length;
+
+string myString = "";
+int periodLocation = 0;
+
+for (int i = 0; i < stringsCount; i++)
 {
-    if (names[i] == "David")
+    myString = myStrings[i];
+    periodLocation = myString.IndexOf(".");
+
+    string mySentence;
+
+    // extract sentences from each string and display them one at a time
+    while (periodLocation != -1)
     {
-        names[i] = "Sammy";
+
+        // first sentence is the string value to the left of the period location
+        mySentence = myString.Remove(periodLocation);
+
+        // the remainder of myString is the string value to the right of the location
+        myString = myString.Substring(periodLocation + 1);
+
+        // remove any leading white-space from myString
+        myString = myString.TrimStart();
+
+        // update the comma location and increment the counter
+        periodLocation = myString.IndexOf(".");
+
+        Console.WriteLine(mySentence);
     }
-}
-
-foreach (var name in names)
-{
-    Console.WriteLine(name);
-}
-
-for (int i = 1; i < 101; i++)
-{
-    if ((i % 3 == 0) && (i % 5 == 0))
-        Console.WriteLine($"{i} - FizzBuzz");
-    else if (i % 3 == 0)
-        Console.WriteLine($"{i} - Fizz");
-    else if (i % 5 == 0)
-        Console.WriteLine($"{i} - Buzz");
-    else
-        Console.WriteLine($"{i}");
+ 
+    mySentence = myString.Trim();
+    Console.WriteLine(mySentence);
 }
