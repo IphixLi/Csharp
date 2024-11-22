@@ -1,72 +1,41 @@
-﻿// string? readResult;
-// string valueEntered = "";
-// int numValue = 0;
-// bool validNumber = false;
+﻿
+// int[] data;
+// data = new int[3];
 
-// Console.WriteLine("Enter an integer value between 5 and 10");
+int[] data = new int[3];
 
-// do
-// {
-//     readResult = Console.ReadLine();
-//     if (readResult != null) 
-//     {
-//         valueEntered = readResult;
-//     }
+string shortenedString = "Hello World!";
+Console.WriteLine(shortenedString);
 
-//     validNumber = int.TryParse(valueEntered, out numValue);
+int[] ref_A= new int[1];
+ref_A[0] = 2;
+int[] ref_B = ref_A;
+ref_B[0] = 5;
 
-//     if (validNumber == true)
-//     {
-//         if (numValue <= 5 || numValue >= 10)
-//         {
-//             validNumber = false;
-//             Console.WriteLine($"You entered {numValue}. Please enter a number between 5 and 10.");
-//         }
-//     }
-//     else 
-//     {
-//         Console.WriteLine("Sorry, you entered an invalid number, please try again");
-//     }
-// } while (validNumber == false);
+Console.WriteLine("--Reference Types--");
+Console.WriteLine($"ref_A[0]: {ref_A[0]}");
+Console.WriteLine($"ref_B[0]: {ref_B[0]}");
 
-// Console.WriteLine($"Your input value ({numValue}) has been accepted.");
 
-// readResult = Console.ReadLine();
 
-// -------------------------------
 
-string[] myStrings = new string[2] { "I like pizza. I like roast chicken. I like salad", "I like all three of the menu choices" };
-int stringsCount = myStrings.Length;
+// Console.WriteLine("");
+// Console.WriteLine("Floating point types:");
+// Console.WriteLine($"float  : {float.MinValue} to {float.MaxValue} (with ~6-9 digits of precision)");
+// Console.WriteLine($"double : {double.MinValue} to {double.MaxValue} (with ~15-17 digits of precision)");
+// Console.WriteLine($"decimal: {decimal.MinValue} to {decimal.MaxValue} (with 28-29 digits of precision)");
 
-string myString = "";
-int periodLocation = 0;
+// Console.WriteLine("Signed integral types:");
 
-for (int i = 0; i < stringsCount; i++)
-{
-    myString = myStrings[i];
-    periodLocation = myString.IndexOf(".");
+// Console.WriteLine($"sbyte  : {sbyte.MinValue} to {sbyte.MaxValue}");
+// Console.WriteLine($"short  : {short.MinValue} to {short.MaxValue}");
+// Console.WriteLine($"int    : {int.MinValue} to {int.MaxValue}");
+// Console.WriteLine($"long   : {long.MinValue} to {long.MaxValue}");
 
-    string mySentence;
+// Console.WriteLine("");
+// Console.WriteLine("Unsigned integral types:");
 
-    // extract sentences from each string and display them one at a time
-    while (periodLocation != -1)
-    {
-
-        // first sentence is the string value to the left of the period location
-        mySentence = myString.Remove(periodLocation);
-
-        // the remainder of myString is the string value to the right of the location
-        myString = myString.Substring(periodLocation + 1);
-
-        // remove any leading white-space from myString
-        myString = myString.TrimStart();
-
-        // update the comma location and increment the counter
-        periodLocation = myString.IndexOf(".");
-
-        Console.WriteLine(mySentence);
-    }
- 
-    mySentence = myString.Trim();
-    Console.WriteLine(mySentence);
-}
+// Console.WriteLine($"byte   : {byte.MinValue} to {byte.MaxValue}");
+// Console.WriteLine($"ushort : {ushort.MinValue} to {ushort.MaxValue}");
+// Console.WriteLine($"uint   : {uint.MinValue} to {uint.MaxValue}");
+// Console.WriteLine($"ulong  : {ulong.MinValue} to {ulong.MaxValue}");
