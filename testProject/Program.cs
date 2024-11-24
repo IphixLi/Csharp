@@ -1,20 +1,50 @@
-﻿
+﻿decimal myDecimal = 3.64m;
+Console.WriteLine($"decimal: {myDecimal}");
+
+int myInt = (int)myDecimal;
+Console.WriteLine($"int: {myInt}");
+
+// parsing
+string first = "5";
+string second = "7";
+int sum = int.Parse(first) + int.Parse(second);
+Console.WriteLine(sum);
+
+// string value1 = "5";
+// string value2 = "7";
+// int result = Convert.ToInt32(value1) * Convert.ToInt32(value2);
+// Console.WriteLine(result);
+
+string value = "102";
+int result = 0;
+if (int.TryParse(value, out result))
+{
+   Console.WriteLine($"Measurement: {result}");
+}
+else
+{
+   Console.WriteLine("Unable to report the measurement.");
+}
+
+
+//////////////////////////////////////////////////
+
 // int[] data;
 // data = new int[3];
 
-int[] data = new int[3];
+// int[] data = new int[3];
 
-string shortenedString = "Hello World!";
-Console.WriteLine(shortenedString);
+// string shortenedString = "Hello World!";
+// Console.WriteLine(shortenedString);
 
-int[] ref_A= new int[1];
-ref_A[0] = 2;
-int[] ref_B = ref_A;
-ref_B[0] = 5;
+// int[] ref_A= new int[1];
+// ref_A[0] = 2;
+// int[] ref_B = ref_A;
+// ref_B[0] = 5;
 
-Console.WriteLine("--Reference Types--");
-Console.WriteLine($"ref_A[0]: {ref_A[0]}");
-Console.WriteLine($"ref_B[0]: {ref_B[0]}");
+// Console.WriteLine("--Reference Types--");
+// Console.WriteLine($"ref_A[0]: {ref_A[0]}");
+// Console.WriteLine($"ref_B[0]: {ref_B[0]}");
 
 
 
