@@ -26,7 +26,6 @@ else
    Console.WriteLine("Unable to report the measurement.");
 }
 
-
 //////////////////////////////////////////////////
 
 // int[] data;
