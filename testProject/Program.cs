@@ -1,70 +1,79 @@
-﻿decimal myDecimal = 3.64m;
-Console.WriteLine($"decimal: {myDecimal}");
+﻿
+string orderStream = "B123,C234,A345,C15,B177,G3003,C235,B179";
+// Step 1
+string[] message = orderStream.Split(',');
+Array.Sort(message);
+foreach(String m in message){
+   if (m.Length!=4){
+      Console.WriteLine(m + "\t- Error");
+   }else{
+      Console.WriteLine(m);
+   }
+}
 
-int myInt = (int)myDecimal;
-Console.WriteLine($"int: {myInt}");
+// ------------------------
+// string pangram = "The quick brown fox jumps over the lazy dog";
 
-// parsing
-string first = "5";
-string second = "7";
-int sum = int.Parse(first) + int.Parse(second);
-Console.WriteLine(sum);
+// // Step 1
+// string[] message = pangram.Split(' ');
 
-// string value1 = "5";
-// string value2 = "7";
-// int result = Convert.ToInt32(value1) * Convert.ToInt32(value2);
+// //Step 2
+// string[] newMessage = new string[message.Length];
+
+// // Step 3
+// for (int i = 0; i < message.Length; i++)
+// {
+//     char[] letters = message[i].ToCharArray();
+//     Array.Reverse(letters);
+//     newMessage[i] = new string(letters);
+// }
+
+// //Step 4
+// string result = String.Join(" ", newMessage);
+// Console.WriteLine(result);
+// __________________
+// string value = "abc123";
+// char[] valueArray = value.ToCharArray();
+// Array.Reverse(valueArray);
+// // string result = new string(valueArray);
+// string result = String.Join(",", valueArray);
 // Console.WriteLine(result);
 
-string value = "102";
-int result = 0;
-if (int.TryParse(value, out result))
-{
-   Console.WriteLine($"Measurement: {result}");
-}
-else
-{
-   Console.WriteLine("Unable to report the measurement.");
-}
-
-//////////////////////////////////////////////////
-
-// int[] data;
-// data = new int[3];
-
-// int[] data = new int[3];
-
-// string shortenedString = "Hello World!";
-// Console.WriteLine(shortenedString);
-
-// int[] ref_A= new int[1];
-// ref_A[0] = 2;
-// int[] ref_B = ref_A;
-// ref_B[0] = 5;
-
-// Console.WriteLine("--Reference Types--");
-// Console.WriteLine($"ref_A[0]: {ref_A[0]}");
-// Console.WriteLine($"ref_B[0]: {ref_B[0]}");
+// string[] items = result.Split(',');
+// foreach (string item in items)
+// {
+//     Console.WriteLine(item);
+// }
+// __________________
 
 
+// string[] pallets = [ "B14", "A11", "B12", "A13" ];
+// Console.WriteLine("");
 
+// Array.Clear(pallets, 0, 2);
+// Console.WriteLine($"Clearing 2 ... count: {pallets.Length}");
+// foreach (var pallet in pallets)
+// {
+//     Console.WriteLine($"-- {pallet}");
+// }
 
 // Console.WriteLine("");
-// Console.WriteLine("Floating point types:");
-// Console.WriteLine($"float  : {float.MinValue} to {float.MaxValue} (with ~6-9 digits of precision)");
-// Console.WriteLine($"double : {double.MinValue} to {double.MaxValue} (with ~15-17 digits of precision)");
-// Console.WriteLine($"decimal: {decimal.MinValue} to {decimal.MaxValue} (with 28-29 digits of precision)");
+// Array.Resize(ref pallets, 6);
+// Console.WriteLine($"Resizing 6 ... count: {pallets.Length}");
 
-// Console.WriteLine("Signed integral types:");
+// pallets[4] = "C01";
+// pallets[5] = "C02";
 
-// Console.WriteLine($"sbyte  : {sbyte.MinValue} to {sbyte.MaxValue}");
-// Console.WriteLine($"short  : {short.MinValue} to {short.MaxValue}");
-// Console.WriteLine($"int    : {int.MinValue} to {int.MaxValue}");
-// Console.WriteLine($"long   : {long.MinValue} to {long.MaxValue}");
+// foreach (var pallet in pallets)
+// {
+//     Console.WriteLine($"-- {pallet}");
+// }
 
 // Console.WriteLine("");
-// Console.WriteLine("Unsigned integral types:");
+// Array.Resize(ref pallets, 3);
+// Console.WriteLine($"Resizing 3 ... count: {pallets.Length}");
 
-// Console.WriteLine($"byte   : {byte.MinValue} to {byte.MaxValue}");
-// Console.WriteLine($"ushort : {ushort.MinValue} to {ushort.MaxValue}");
-// Console.WriteLine($"uint   : {uint.MinValue} to {uint.MaxValue}");
-// Console.WriteLine($"ulong  : {ulong.MinValue} to {ulong.MaxValue}");
+// foreach (var pallet in pallets)
+// {
+//     Console.WriteLine($"-- {pallet}");
+// }
