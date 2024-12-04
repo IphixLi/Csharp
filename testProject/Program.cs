@@ -1,73 +1,83 @@
-﻿string customerName = "Ms. Barros";
+﻿
+const string input = "<div><h2>Widgets &trade;</h2><span>5000</span></div>";
 
-string currentProduct = "Magic Yield";
-int currentShares = 2975000;
-decimal currentReturn = 0.1275m;
-decimal currentProfit = 55000000.0m;
+int start = input.IndexOf("<span>");
+int end = input.IndexOf("</span>");
 
-string newProduct = "Glorious Future";
-decimal newReturn = 0.13125m;
-decimal newProfit = 63000000.0m;
+string quantity = input.Substring(start+6, end-start);
 
-Console.WriteLine($"Dear {customerName},");
-Console.WriteLine($"As a customer of our {currentProduct} offering we are excited to tell you about a new financial product that would dramatically increase your return.\n");
-Console.WriteLine($"Currently, you own {currentShares:N} shares at a return of {currentReturn:P}.\n");
-Console.WriteLine($"Our new product, {newProduct} offers a return of {newReturn:P}.  Given your current volume, your potential profit would be {newProfit:C}.\n");
+start = input.IndexOf("<div>");
+end = input.IndexOf("</div");
 
-Console.WriteLine("Here's a quick comparison:\n");
+string output = input.Substring(start+5, end-start);;
+output.Replace("trade","reg");
 
-string comparisonMessage = "";
+// Quantity: 5000
+// Output: <h2>Widgets &reg;</h2><span>5000</span>
+// Your work here
 
-comparisonMessage = currentProduct.PadRight(20);
-comparisonMessage += String.Format("{0:P}", currentReturn).PadRight(10);
-comparisonMessage += String.Format("{0:C}", currentProfit).PadRight(20);
+Console.WriteLine("Quantity: "+quantity);
+Console.WriteLine("Output: "+output);
 
-comparisonMessage += "\n";
-comparisonMessage += newProduct.PadRight(20);
-comparisonMessage += String.Format("{0:P}", newReturn).PadRight(10);
-comparisonMessage += String.Format("{0:C}", newProfit).PadRight(20);
 
-Console.WriteLine(comparisonMessage);
-//  -------------------
-// string input = "Pad this";
-//  Console.WriteLine(input.PadLeft(12));
-//  Console.WriteLine(input.PadLeft(12, '-'));
-//  Console.WriteLine(input.PadRight(12, '-'));
 
-// ------------------
-// int invoiceNumber = 1201;
-// decimal productShares = 25.4568m;
-// decimal subtotal = 2750.00m;
-// decimal taxPercentage = .15825m;
-// decimal total = 3185.19m;
+// -----------------------------
+// string data = "12345John Smith          5000  3  ";
+// string updatedData = data.Remove(5, 20);
+// Console.WriteLine(updatedData);
 
-// Console.WriteLine($"Invoice Number: {invoiceNumber}");
-// Console.WriteLine($"   Shares: {productShares:N3} Product");
-// Console.WriteLine($"     Sub Total: {subtotal:C}");
-// Console.WriteLine($"           Tax: {taxPercentage:P2}");
-// Console.WriteLine($"     Total Billed: {total:C}");
+// string message = "This--is--ex-amp-le--da-ta";
+// message = message.Replace("--", " ");
+// message = message.Replace("-", "");
+// Console.WriteLine(message);
+// ----------------------------
+// string message = "(What if) I have [different symbols] but every {open symbol} needs a [matching closing symbol]?";
 
-// -----------------------
-// string first = "Hello";
-// string second = "World";
-// Console.WriteLine("{1} {0}!", first, second);
-// Console.WriteLine("{0} {0} {0}!", first, second);
+// // The IndexOfAny() helper method requires a char array of characters. 
+// // You want to look for:
 
-// // currency
-// // decimal price = 123.45m;
-// // int discount = 50;
-// // Console.WriteLine($"Price: {price:C} (Save {discount:C})");
+// char[] openSymbols = { '[', '{', '(' };
 
-// decimal measurement = 123456.78912m;
-// Console.WriteLine($"Measurement: {measurement:N} units");
+// // You'll use a slightly different technique for iterating through 
+// // the characters in the string. This time, use the closing 
+// // position of the previous iteration as the starting index for the 
+// //next open symbol. So, you need to initialize the closingPosition 
+// // variable to zero:
 
-// // percentage
-// decimal tax = .36785m;
-// Console.WriteLine($"Tax rate: {tax:P2}");
+// int closingPosition = 0;
 
-// decimal price = 67.55m;
-// decimal salePrice = 59.99m;
+// while (true)
+// {
+//     int openingPosition = message.IndexOfAny(openSymbols, closingPosition);
 
-// string yourDiscount = String.Format("You saved {0:C2} off the regular {1:C2} price. ", (price - salePrice), price);
-// yourDiscount += $"A discount of {((price - salePrice)/price):P2}!"; //inserted
-// Console.WriteLine(yourDiscount);
+//     if (openingPosition == -1) break;
+
+//     string currentSymbol = message.Substring(openingPosition, 1);
+
+//     // Now  find the matching closing symbol
+//     char matchingSymbol = ' ';
+
+//     switch (currentSymbol)
+//     {
+//         case "[":
+//             matchingSymbol = ']';
+//             break;
+//         case "{":
+//             matchingSymbol = '}';
+//             break;
+//         case "(":
+//             matchingSymbol = ')';
+//             break;
+//     }
+
+//     // To find the closingPosition, use an overload of the IndexOf method to specify 
+//     // that the search for the matchingSymbol should start at the openingPosition in the string. 
+
+//     openingPosition += 1;
+//     closingPosition = message.IndexOf(matchingSymbol, openingPosition);
+
+//     // Finally, use the techniques you've already learned to display the sub-string:
+
+//     int length = closingPosition - openingPosition;
+//     Console.WriteLine(message.Substring(openingPosition, length));
+// }
